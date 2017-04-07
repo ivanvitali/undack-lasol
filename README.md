@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/iVanVitali/undack-lasol.png?label=ready&title=Ready)](https://waffle.io/iVanVitali/undack-lasol)
 # undack-lasol
   * Proyecto de la aplicaion web para administrar el contenido de alumnos de la UNDAV
   En pocas palabras Undack es un administrador de contenidos de una plataforma Web para estudiantes de la Carrera Ingeniería en Informática de la Undav. El portal UNDAV  tendrá un acceso público y un acceso para los estudiantes donde se pueda intercambiar material diverso relacionado con la carrera. 
