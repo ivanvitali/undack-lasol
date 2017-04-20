@@ -1,7 +1,7 @@
 {
-  "name": "siisp",
+  "name": "UndackApp",
   "version": "1.0.0",
-  "description": "SIISP",
+  "description": "UndackApp administrador de contenidos para los alumnos de la UNDAV",
   "main": "app.js",
   "dependencies": {
     "bower": "^1.7.9",
@@ -40,7 +40,10 @@
     "mechanic",
     "backoffice"
   ],
-  "author": "Lucas Casabone",
+  "authors": [
+    "Lucas Casabone",
+    "Ivan Vitali",
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/seasyapp/mechanic-backoffice/issues"

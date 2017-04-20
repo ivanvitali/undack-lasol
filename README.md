@@ -7,16 +7,30 @@
   + Amgular Material
   + Firebase
 
-### Instalacion del ambiente de desarrollo
-  + Instalar el Cliente de Control de versiones GIT
+### Preparar el ambiente del desarrollo local
+  + Instalar GIT (es un cliente de control de versiones)
     + link de descarga: https://git-scm.com/downloads
   + Instalar el Node.js
-  + Instalar npm
-    + parado en la carpeta del proyecto ejecutar desde la terminal -> npm install
-  + Instalar Gulp de manera global
-    + ejecutar -> npm install --global gulp
-  + Instalar bower de manera global
-    + ejecutar -> npm install -global bower
+    + link de descarga: https://nodejs.org
+  + Instalar los siguientes paquetes de manera global
+    + gulp y bower
+    
+            npm install -g gulp bower
     
 ## Instalacion local del proyecto 
+  1. Clonar el proyecto
+  
     git clone https://github.com/iVanVitali/undack-lasol.git
+    
+  2. Instalar las dependencias
+  
+    npm install
+
+  3. Resolver las dependencias de las librerias usadas
+  
+    gulp init-dev
+    
+  4. Ejecutar el servidor del ambiente de trabajo
+  
+    gulp connect-dev
+    
