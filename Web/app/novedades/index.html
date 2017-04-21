@@ -18,7 +18,7 @@
             <md-content>
                 <md-list flex>
                     <div ng-repeat="novedad in novedades">
-                        <md-list-item class="md-3-line"  ng-click="null">
+                        <md-list-item class="md-3-line"  ng-click="selecionarNovedad(novedad)">
                             <div class="md-list-item-text" layout="column">
                                 <h2 class="md-title">{{ novedad.titulo }}</h2>
                                 <h4>Publicado: {{ novedad.publicado }}</h4>
@@ -36,13 +36,13 @@
         <div flex-gt-sm="70" flex>
             <md-content>
                 <md-list flex>
-                    <div ng-repeat="novedad in novedades">
+                    <div>
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text" layout="column">
-                                <h2 class="md-title">{{ novedad.titulo }}</h2>
-                                <h4>Publicado: {{ novedad.publicado }}</h4>
-                                <p>{{ novedad.descripcion }}</p>
-                                <h3 class="md-subhead" layout-align="start end">Autor: {{ novedad.autor }}</h3>
+                                <h2 class="md-title">{{ novedadSeleccionada.titulo }}</h2>
+                                <h4>Publicado: {{ novedadSeleccionada.publicado }}</h4>
+                                <p>{{ novedadSeleccionada.descripcion }}</p>
+                                <h3 class="md-subhead" layout-align="start end">Autor: {{ novedadSeleccionada.autor }}</h3>
                             </div>
                         </md-list-item>
                         <md-divider ></md-divider>
