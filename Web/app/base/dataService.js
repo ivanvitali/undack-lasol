@@ -16,16 +16,6 @@ angular.module('Base').factory('dataService', ['$firebaseObject',
 	    getData: function(referenceName){
 			var ref = firebase.database().ref(referenceName);
 			return $firebaseObject(ref);
-			// synchronize the object with a three-way data binding
-			// click on `index.html` above to see it used in the DOM!
-			//syncObject.$bindTo(scope, objectName);
-			/*
-    		var dataRef = firebase.database().ref(referenceName);
-				dataRef.on('value', function(snapshot) {
-			  	var data = snapshot.val();
-					console.log(data);
-			  		callback(data, param);
-				});*/
 	    },
 	    saveObject:function(referenceName, object, onCompleted){
 	    	if(object.id==null)
