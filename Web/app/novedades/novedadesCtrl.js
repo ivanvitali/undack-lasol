@@ -9,6 +9,10 @@ angular.module('Novedades')
                 $scope.novedadSeleccionada = novedadesService.obtenerNovedadDestacada();
             }
 
+            $scope.novedadNoExpirada = function(novedad){
+                return novedad.fechaExpiracion >= new Date().getTime();
+            }
+
             $scope.selecionarNovedad = function(novedad)
             {
                 $scope.novedadSeleccionada = novedad;

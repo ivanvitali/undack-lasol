@@ -17,11 +17,11 @@
 
             <md-content>
                 <md-list flex>
-                    <div ng-repeat="novedad in novedades">
+                    <div ng-repeat="novedad in novedades | toArray | filter: novedadNoExpirada">
                         <md-list-item class="md-3-line"  ng-click="selecionarNovedad(novedad)">
                             <div class="md-list-item-text" layout="column">
                                 <h2 class="md-title">{{ novedad.titulo }}</h2>
-                                <h4>Publicado: {{ novedad.publicado }}</h4>
+                                <h4>Publicado: {{ novedad.fechaPublicacion | date: 'dd/MM/yyyy' }}</h4>
                                 <p>{{ novedad.resumen }}</p>
                             </div>
                         </md-list-item>
@@ -40,7 +40,7 @@
                         <md-list-item class="md-3-line">
                             <div class="md-list-item-text" layout="column">
                                 <h2 class="md-title">{{ novedadSeleccionada.titulo }}</h2>
-                                <h4>Publicado: {{ novedadSeleccionada.publicado }}</h4>
+                                <h4>Publicado: {{ novedadSeleccionada.fechaPublicacion | date: 'dd/MM/yyyy' }}</h4>
                                 <p>{{ novedadSeleccionada.descripcion }}</p>
                                 <h3 class="md-subhead" layout-align="start end">Autor: {{ novedadSeleccionada.autor }}</h3>
                             </div>

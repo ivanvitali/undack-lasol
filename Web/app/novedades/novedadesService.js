@@ -4,7 +4,8 @@ angular.module('Novedades').factory('novedadesService', ['dataService',
     function (dataService) {
         return {
             obtenerNovedades: function() {
-                return dataService.getData('novedades');
+                var novedades = dataService.getData('novedades');
+                return novedades;
             },
             obtenerNovedadDestacada: function ()
             {
