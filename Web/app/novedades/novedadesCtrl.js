@@ -5,7 +5,6 @@ angular.module('Novedades')
         function ($scope, novedadesService) {
             $scope.setup = function()
             {
-                console.log('Setup novedades');
                 $scope.novedades = novedadesService.obtenerNovedades();
                 $scope.novedadSeleccionada = novedadesService.obtenerNovedadDestacada();
             }
