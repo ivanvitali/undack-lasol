@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Base').factory('dataService', ['$firebaseObject',
+angular.module('Core').factory('coreService', ['$firebaseObject',
   function ($firebaseObject) {
 	  var config = {
 		  apiKey: "AIzaSyDUfN67ITZxYROr6RB6uYe05IRgrru3kA4",

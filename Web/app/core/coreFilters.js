@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Base').filter('toArray', function() {
+angular.module('Core').filter('toArray', function() {
     return function(obj) {
         var result = [];
         angular.forEach(obj, function(val) {
