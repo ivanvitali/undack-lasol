@@ -21,3 +21,20 @@ angular.module('News')
             $scope.setup();
         }
     ]);
+angular.module('News')
+    .controller('news.edit', ['$scope', 'newsService',
+        function ($scope, newsService) {
+            $scope.setup=function(){
+                $scope.newEditing=newsService.getNewForEdit();
+                $scope.newSaved=false;
+            }
+            $scope.save=function(){
+                $scope.newEditing.creationDate=new Date().getTime();
+                newsService.saveNew($scope.newEditing, onSaved);
+            }
+            var onSaved=function(newSaved){
+                $scope.newSaved=true;
+            }
+            $scope.setup();
+        }
+    ]);

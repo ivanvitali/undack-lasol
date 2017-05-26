@@ -10,6 +10,13 @@ angular.module('News').factory('newsService', ['coreService',
             getTopNew: function ()
             {
                 return dataService.getData('novedades/novedad1');
+            },
+            saveNew: function(aNew, onSaved)
+            {
+                aNew.$save().then(onSaved);
+            },
+            getNewForEdit: function(){
+                return dataService.getNewObject('novedades');
             }
         };
     }

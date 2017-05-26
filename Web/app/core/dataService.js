@@ -17,6 +17,10 @@ angular.module('Core').factory('coreService', ['$firebaseObject',
 			var ref = firebase.database().ref(referenceName);
 			return $firebaseObject(ref);
 	    },
+		getNewObject: function(referenceName){
+			var ref= firebase.database().ref(referenceName).push();
+			return $firebaseObject(ref);
+		},
 	    saveObject:function(referenceName, object, onCompleted){
 	    	if(object.id==null)
 	    	{

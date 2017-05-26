@@ -12,4 +12,9 @@ angular.module('News', ['Core']).config(function($stateProvider) {
         templateUrl: "news/index.html",
         controller: "news.index"
     })
+    .state('news.edit', {
+        url: "/edit",
+        templateUrl: "news/edit.html",
+        controller: "news.edit"
+    })
 });
