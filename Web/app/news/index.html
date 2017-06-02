@@ -1,55 +1,19 @@
-<div layout="column" layout-align="start center" ng-cloak>
-    <h2>Ultimas novedades!!!</h2>
-    <div  layout-gt-sm="row" layout="column" layout-padding>
-
-        <md-toolbar layout="row" class="md-hue-3" show-xs show-sm hide-md hide-lg>
-            <div class="md-toolbar-tools">
-                <span>Novedades</span>
-            </div>
-        </md-toolbar>
-
-        <div flex-gt-sm="30" hide-xs hide-sm flex md-whiteframe="2">
-            <md-toolbar layout="row" class="md-hue-3">
-                <div class="md-toolbar-tools">
-                    <span>Novedades</span>
-                </div>
-            </md-toolbar>
-
-            <md-content>
-                <md-list flex>
-                    <div ng-repeat="aNew in news | toArray | filter: notExpired">
-                        <md-list-item class="md-3-line"  ng-click="selectNew(aNew)">
-                            <div class="md-list-item-text" layout="column">
-                                <h2 class="md-title">{{ aNew.titulo }}</h2>
-                                <h4>Publicado: {{ aNew.fechaPublicacion | date: 'dd/MM/yyyy' }}</h4>
-                                <p>{{ aNew.resumen }}</p>
-                            </div>
-                        </md-list-item>
-                        <md-divider ></md-divider>
-                    </div>
-                </md-list>
-            </md-content>
-        </div>
-
-        <md-divider></md-divider>
-
-        <div flex-gt-sm="70" flex>
-            <md-content>
-                <md-list flex>
-                    <div>
-                        <md-list-item class="md-3-line">
-                            <div class="md-list-item-text" layout="column">
-                                <h2 class="md-title">{{ selectedNew.titulo }}</h2>
-                                <h4>Publicado: {{ selectedNew.fechaPublicacion | date: 'dd/MM/yyyy' }}</h4>
-                                <p>{{ selectedNew.descripcion }}</p>
-                                <h3 class="md-subhead" layout-align="start end">Autor: {{ selectedNew.autor }}</h3>
-                            </div>
-                        </md-list-item>
-                        <md-divider ></md-divider>
-                    </div>
-                </md-list>
-            </md-content>
-        </div>
+<div>
+    <md-button class="md-raised md-primary" ui-sref="news.edit">Agregar Nueva</md-button>
+    <div ng-show="news">
+        <h1>Novedades</h1>
+        <table>
+            <tr>
+                <th>Titulo</th>
+            </tr>
+            <tr ng-repeat="aNew in news">
+                <td>{{aNew.title}}</td>
+                <td>
+                    <md-button class="md-raised md-primary" ng-click="setAsTop(aNew);">Destacar</md-button>
+                    <md-button class="md-raised md-primary" ui-sref="news.edit({id:aNew.id})">Editar</md-button>
+                    <md-button class="md-raised md-primary" ng-click="delete(aNew);">Eliminar</md-button>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
-

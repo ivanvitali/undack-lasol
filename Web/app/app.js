@@ -5,7 +5,7 @@
         function ($rootScope, $state, $stateParams) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
-            $state.go('news.index');
+            $state.go('news.show');
         }
     ]);
 })();

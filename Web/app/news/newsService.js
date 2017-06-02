@@ -3,13 +3,17 @@
 angular.module('News').factory('newsService', ['coreService',
     function (dataService) {
         return {
-            getNews: function() {
-                var news = dataService.getData('novedades');
+            getNews: function(onNewsLoaded) {
+                var news = dataService.getData('novedades', onNewsLoaded);
                 return news;
             },
-            getTopNew: function ()
+            getNew: function(id)
             {
-                return dataService.getData('novedades/novedad1');
+              return dataService.getData('novedades/'+id);
+            },
+            getTopNew: function (onTopNewLoaded)
+            {
+                return dataService.getData('novedades/top', onTopNewLoaded);
             },
             saveNew: function(aNew, onSaved)
             {
@@ -17,6 +21,12 @@ angular.module('News').factory('newsService', ['coreService',
             },
             getNewForEdit: function(){
                 return dataService.getNewObject('novedades');
+            },
+            delete: function (aNew) {
+                dataService.delete('novedades',aNew);
+            },
+            setTop: function (topNew, onSaved) {
+                topNew.$save().then(onSaved);
             }
         };
     }

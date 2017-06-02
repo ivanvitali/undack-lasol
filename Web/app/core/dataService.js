@@ -13,9 +13,14 @@ angular.module('Core').factory('coreService', ['$firebaseObject',
 	  firebase.initializeApp(config);
 
 	return {
-	    getData: function(referenceName){
+	    getData: function(referenceName, onLoaded){
 			var ref = firebase.database().ref(referenceName);
-			return $firebaseObject(ref);
+			var obj = $firebaseObject(ref);
+			if(onLoaded !== undefined)
+			{
+				obj.$loaded().then(onLoaded);
+			}
+			return obj;
 	    },
 		getNewObject: function(referenceName){
 			var ref= firebase.database().ref(referenceName).push();
