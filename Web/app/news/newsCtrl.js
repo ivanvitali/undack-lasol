@@ -11,7 +11,7 @@ angular.module('News')
             };
 
             $scope.notExpired = function(aNew){
-                return aNew.fechaExpiracion >= new Date().getTime();
+                return aNew.expirationDate >= new Date().getTime();
             }
 
             $scope.selectNew = function(aNew)
@@ -65,7 +65,8 @@ angular.module('News').controller('news.edit', ['$scope', '$stateParams', 'newsS
             $scope.newSaved=false;
         }
         $scope.save=function(){
-            $scope.newEditing.creationDate=new Date().getTime();
+            $scope.newEditing.creationDate = new Date().getTime();
+            $scope.newEditing.expirationDate = $scope.newEditing.expirationDate.getTime();
             newsService.saveNew($scope.newEditing, onSaved);
         }
         var onSaved=function(newSaved){

@@ -4,26 +4,26 @@ angular.module('News').factory('newsService', ['coreService',
     function (dataService) {
         return {
             getNews: function(onNewsLoaded) {
-                var news = dataService.getData('novedades', onNewsLoaded);
+                var news = dataService.getData('news', onNewsLoaded);
                 return news;
             },
             getNew: function(id)
             {
-              return dataService.getData('novedades/'+id);
+              return dataService.getData('news/'+id);
             },
             getTopNew: function (onTopNewLoaded)
             {
-                return dataService.getData('novedades/top', onTopNewLoaded);
+                return dataService.getData('topNew', onTopNewLoaded);
             },
             saveNew: function(aNew, onSaved)
             {
-                aNew.$save().then(onSaved);
+                dataService.saveObject(aNew, onSaved);
             },
             getNewForEdit: function(){
-                return dataService.getNewObject('novedades');
+                return dataService.getNewObject('news');
             },
             delete: function (aNew) {
-                dataService.delete('novedades',aNew);
+                dataService.deleteObject('news', aNew);
             },
             setTop: function (topNew, onSaved) {
                 topNew.$save().then(onSaved);

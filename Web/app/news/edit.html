@@ -3,19 +3,19 @@
         <div layout-gt-xs="row">
             <md-input-container >
                 <label>Titulo</label>
-                <input ng-model="newEditing.title">
+                <input required ng-model="newEditing.title">
             </md-input-container>
         </div>
         <div layout-gt-xs="row">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Resumen</label>
-                <input ng-model="newEditing.summary">
+                <input required ng-model="newEditing.summary">
             </md-input-container>
         </div>
         <div layout-gt-xs="row">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Cuerpo de la Noticia</label>
-                <input ng-model="newEditing.body">
+                <input required ng-model="newEditing.body">
             </md-input-container>
         </div>
         <div layout-gt-xs="row">
@@ -24,14 +24,10 @@
                 <input ng-model="newEditing.source">
             </md-input-container>
             <md-input-container >
-                <label>Autor</label>
-                <input ng-model="newEditing.author">
-            </md-input-container>
-            <md-input-container >
                 <datepicker date-format="dd/MM/yyyy" selector="form-control">
                     <div>
                         <label>Fecha de Expiración</label>
-                        <input class="form-control" ng-model="newEditing.expirationDate"/>
+                        <input required class="form-control" ng-model="newEditing.expirationDate"/>
                                 <span class="input-group-addon" style="cursor: pointer">
                                     <i class="fa fa-lg fa-calendar"></i>
                                 </span>

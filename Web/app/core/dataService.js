@@ -16,29 +16,28 @@ angular.module('Core').factory('coreService', ['$firebaseObject',
 	    getData: function(referenceName, onLoaded){
 			var ref = firebase.database().ref(referenceName);
 			var obj = $firebaseObject(ref);
-			if(onLoaded !== undefined)
-			{
+			if(onLoaded !== undefined) {
 				obj.$loaded().then(onLoaded);
 			}
 			return obj;
 	    },
 		getNewObject: function(referenceName){
-			var ref= firebase.database().ref(referenceName).push();
+			var ref= firebase.database().ref().child(referenceName).push();
 			return $firebaseObject(ref);
 		},
-	    saveObject:function(referenceName, object, onCompleted){
-	    	if(object.id==null)
-	    	{
-	    		object.id = firebase.database().ref().child(referenceName).push().key;
-	    	}
-
-	    	firebase.database().ref(referenceName+'/' + object.id ).set(object, onCompleted);
+	    saveObject:function(dataObject, onSaved){
+			if(dataObject.id === undefined){
+				dataObject.id = dataObject.$id;
+			}
+			dataObject.$save().then(onSaved);
 	    },
 		update:function(referenceName, value){
 			firebase.database().ref(referenceName).update(value);
 		},
 		deleteObject:function(referenceName, object){
-			firebase.database().ref(referenceName+'/' + object.id ).remove();
+			var ref = firebase.database().ref(referenceName+'/' + object.id);
+			var obj = $firebaseObject(ref);
+			obj.$remove();
 		},
 		uploadFile:function(referenceName, file, onUploading, onError, onUploaded) {
 			var storageRef = firebase.storage().ref();
