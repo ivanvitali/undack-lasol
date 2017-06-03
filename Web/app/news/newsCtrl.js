@@ -3,10 +3,12 @@
 angular.module('News')
     .controller('news.show', ['$scope', 'newsService',
         function ($scope, newsService) {
+
             $scope.setup = function()
             {
-                $scope.news = newsService.getNews(loadTopNew);
-            }
+                $scope.newsLoaded = false;
+                $scope.news = newsService.getNews(onNewsLoaded);
+            };
 
             $scope.notExpired = function(aNew){
                 return aNew.fechaExpiracion >= new Date().getTime();
@@ -21,7 +23,8 @@ angular.module('News')
                 $scope.selectedNew = $scope.news[topNew.id];
             }
             
-            var loadTopNew = function(){
+            var onNewsLoaded = function(){
+                $scope.newsLoaded = true;
                 newsService.getTopNew(onTopNewLoaded);
             }
 
