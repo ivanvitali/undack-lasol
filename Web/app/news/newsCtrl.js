@@ -60,13 +60,13 @@ angular.module('News').controller('news.edit', ['$scope', '$stateParams', 'newsS
                 $scope.newEditing=newsService.getNewForEdit();
             }
             else{
-                $scope.newEditing=newsService.getNew($stateParams.id);
+                $scope.newEditing=newsService.getNew($stateParams.id, function(aNew){ $scope.expirationDate = new Date(aNew.expirationDate).toString();});
             }
             $scope.newSaved=false;
         }
         $scope.save=function(){
             $scope.newEditing.creationDate = new Date().getTime();
-            $scope.newEditing.expirationDate = $scope.newEditing.expirationDate.getTime();
+            $scope.newEditing.expirationDate = new Date($scope.expirationDate).getTime();
             newsService.saveNew($scope.newEditing, onSaved);
         }
         var onSaved=function(newSaved){

@@ -7,9 +7,9 @@ angular.module('News').factory('newsService', ['coreService',
                 var news = dataService.getData('news', onNewsLoaded);
                 return news;
             },
-            getNew: function(id)
+            getNew: function(id, onLoaded)
             {
-              return dataService.getData('news/'+id);
+              return dataService.getData('news/'+id, onLoaded);
             },
             getTopNew: function (onTopNewLoaded)
             {

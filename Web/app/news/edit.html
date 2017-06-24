@@ -24,10 +24,10 @@
                 <input ng-model="newEditing.source">
             </md-input-container>
             <md-input-container >
-                <datepicker date-format="dd/MM/yyyy" selector="form-control">
+                <datepicker date-set="{{expirationDate}}" date-format="yyyy/MM/dd" selector="form-control">
                     <div>
                         <label>Fecha de Expiración</label>
-                        <input required class="form-control" ng-model="newEditing.expirationDate"/>
+                        <input required class="form-control" ng-model="expirationDate"/>
                                 <span class="input-group-addon" style="cursor: pointer">
                                     <i class="fa fa-lg fa-calendar"></i>
                                 </span>
