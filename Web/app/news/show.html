@@ -1,22 +1,23 @@
-<div ng-cloak layout="column" layout-align="start center">
+<div id="recuadro-contenido">
+    <div ng-cloak layout="column" layout-align="start center">
     <md-progress-circular ng-show="!newsLoaded" md-diameter="96"></md-progress-circular>
     <h2 ng-show="newsLoaded && (news | toArray | filter: notExpired).length === 0">No hay novedades</h2>
-    <div layout="column" layout-align="start center" ng-show="newsLoaded && (news | toArray | filter: notExpired).length > 0">
-        <h2>Ultimas novedades!!!</h2>
+    <div layout="column" ng-show="newsLoaded && (news | toArray | filter: notExpired).length > 0">
+
         <div  layout-gt-sm="row" layout="column" layout-padding>
-            <div flex-gt-sm="30" hide-xs hide-sm flex md-whiteframe="2">
+            <div id="cuadro-novedades" flex-gt-sm="30" hide-xs hide-sm flex md-whiteframe="2">
                 <md-toolbar layout="row" class="md-hue-3">
-                    <div class="md-toolbar-tools">
+                    <div class="md-toolbar-tools color-fondo">
                         <span>Novedades</span>
                     </div>
                 </md-toolbar>
                 <md-content>
                     <md-list flex>
-                        <div ng-repeat="aNew in news | toArray | filter: notExpired">
+                        <div ng-repeat="aNew in news | toArray | filter: notExpired | orderBy: '+expirationDate'">
                             <md-list-item class="md-3-line"  ng-click="selectNew(aNew)">
                                 <div class="md-list-item-text" layout="column">
                                     <h2 class="md-title">{{ aNew.title }}</h2>
-                                    <h4>Publicado: {{ aNew.creationDate | date: 'dd/MM/yyyy' }}</h4>
+                                    <h4>Publicado: {{ aNew.creationDate | date: 'dd/MM/yyyy HH:mm' }}</h4>
                                     <p>{{ aNew.summary }}</p>
                                 </div>
                             </md-list-item>
@@ -30,7 +31,7 @@
                 <md-content>
             </div>
 
-            <md-divider></md-divider>
+            <md-divider id="borrar-divisor-izquierdo"></md-divider>
 
             <div flex-gt-sm="70" flex>
                 <md-content>
@@ -39,17 +40,17 @@
                             <md-list-item class="md-3-line">
                                 <div class="md-list-item-text" layout="column">
                                     <h2 class="md-title">{{ selectedNew.title }}</h2>
-                                    <h4>Publicado: {{ selectedNew.creationDate | date: 'dd/MM/yyyy' }}</h4>
+                                    <h4>Publicado: {{ selectedNew.creationDate | date: 'dd/MM/yyyy HH:mm' }}</h4>
                                     <p>{{ selectedNew.body }}</p>
-                                    <h3 class="md-subhead" layout-align="start end">Autor: {{ selectedNew.author }}</h3>
+                                    <h3 class="md-subhead" layout-align="start end">Fuente: {{ selectedNew.source }}</h3>
                                 </div>
                             </md-list-item>
-                            <md-divider ></md-divider>
+                            <md-divider class="borrar-divisor"></md-divider>
                         </div>
                     </md-list>
                 </md-content>
             </div>
         </div>
     </div>
+    </div>
 </div>
-
