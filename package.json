@@ -1,6 +1,6 @@
 {
   "name": "UndackApp",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "UndackApp administrador de contenidos para los alumnos de la UNDAV",
   "main": "app.js",
   "dependencies": {
