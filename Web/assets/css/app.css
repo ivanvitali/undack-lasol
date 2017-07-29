@@ -1,0 +1,48 @@
+#cuadro-novedades{
+    box-shadow: none;
+}
+
+#borrar-divisor-izquierdo{
+    border-color: transparent;
+}
+
+.borrar-divisor{
+    border-color: transparent;
+}
+
+.color-fondo{
+    background-color: #e9e9e9;
+}
+
+.header-color {
+    background-color: #3d418c;
+}
+
+#titulo-novedades{
+    margin-left: 33.5%;
+    margin-bottom: 10%;
+}
+
+#recuadro-contenido{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+}
+#recuadro-header{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#recuadro-nav{
+    margin-left: 15%;
+    margin-right: 0%;
+}
+
+.fondo{
+    background-color: #e9e9e9;
+}
+
+#footer{
+    margin-left: 15%;
+    margin-right: 15%;
+}
