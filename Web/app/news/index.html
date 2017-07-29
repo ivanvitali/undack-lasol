@@ -1,19 +1,53 @@
 <div>
     <md-button class="md-raised md-primary" ui-sref="news.create({type:'publicados'})">Agregar Nueva</md-button>
     <div ng-show="news">
-        <h1>Novedades</h1>
-        <table>
-            <tr>
-                <th>Titulo</th>
-            </tr>
-            <tr ng-repeat="aNew in news">
-                <td>{{aNew.title}}</td>
-                <td>
-                    <md-button class="md-raised md-primary" ng-click="setAsTop(aNew);">Destacar</md-button>
-                    <md-button class="md-raised md-primary" ui-sref="news.edit({id:aNew.id})">Editar</md-button>
-                    <md-button class="md-raised md-primary" ng-click="delete(aNew);">Eliminar</md-button>
-                </td>
-            </tr>
-        </table>
+        <h1>Novedades</h1> <md-button class="md-raised md-primary" ui-sref="news.create">Agregar Nueva</md-button>
+            <div ng-cloak>
+                <md-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Publicadas">
+                            <md-content class="md-padding">
+                                <table>
+                                    <tr ng-repeat="aNew in news | toArray | filter: isPublished">
+                                        <td>{{aNew.title}}</td>
+                                        <td>
+                                            <md-button class="md-raised md-primary" ng-click="setAsTop(aNew);">Destacar</md-button>
+                                            <md-button class="md-raised md-primary" ui-sref="news.edit({id:aNew.id})">Editar</md-button>
+                                            <md-button class="md-raised md-primary" ng-click="delete(aNew);">Eliminar</md-button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Sugeridas">
+                                <md-content class="md-padding">
+                                    <table>
+                                        <tr ng-repeat="aNew in news | toArray | filter: isSuggested">
+                                            <td>{{aNew.title}}</td>
+                                            <td>
+                                                <md-button class="md-raised md-primary" ng-click="publish(aNew);">Publicar</md-button>
+                                                <md-button class="md-raised md-primary" ui-sref="news.edit({id:aNew.id})">Editar</md-button>
+                                                <md-button class="md-raised md-primary" ng-click="delete(aNew);">Eliminar</md-button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </md-content>
+                        </md-tab>
+                        <md-tab label="Expiradas">
+                            <md-content class="md-padding">
+                                <table>
+                                    <tr ng-repeat="aNew in news | toArray | filter: isExpired">
+                                        <td>{{aNew.title}}</td>
+                                        <td>
+                                            <md-button class="md-raised md-primary" ui-sref="news.edit({id:aNew.id})">Editar</md-button>
+                                            <md-button class="md-raised md-primary" ng-click="delete(aNew);">Eliminar</md-button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+            </div>
     </div>
 </div>

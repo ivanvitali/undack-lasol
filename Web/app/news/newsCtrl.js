@@ -50,6 +50,23 @@ angular.module('News').controller('news.index', ['$scope', 'newsService',
             newsService.setTop($scope.topNew);
         }
 
+        $scope.publish = function (aNew) {
+            newsService.saveNew(aNew);
+        }
+
+        $scope.isSuggested = function(aNew){
+            if(aNew.type == undefined) return false;
+            return aNew.type == 'suggested';
+        }
+        $scope.isExpired = function (aNew)
+        {
+            return aNew.expirationDate < new Date().getTime();
+        }
+
+        $scope.isPublished = function(aNew){
+            return (aNew.type === undefined || aNew.type === 'published') && !(aNew.expirationDate < new Date().getTime());
+        }
+
         $scope.setup();
     }
 ]);
