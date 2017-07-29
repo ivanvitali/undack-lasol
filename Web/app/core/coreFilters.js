@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('Core').filter('toArray', function() {
     return function(obj) {
         var result = [];

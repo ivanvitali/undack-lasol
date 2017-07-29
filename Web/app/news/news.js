@@ -8,7 +8,7 @@ angular.module('News', ['Core']).config(function($stateProvider) {
         template: "<ui-view />"
     })
     .state('news.show', {
-        url: "/",
+        url: "",
         templateUrl: "news/show.html",
         controller: "news.show"
     })
