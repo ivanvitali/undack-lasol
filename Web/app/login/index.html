@@ -1,0 +1,33 @@
+<style>
+  .loginBody form { min-width: 450px; }
+</style>
+<div class="loginBody" ng-controller="loginCtrl" layout="column" layout-align="center center" layout-fill>
+    <form name="form" ng-submit="login()" role="form" ng-init="initController()">
+        <md-toolbar>
+            <h2 class="md-toolbar-tools">
+              <span> Login</span>
+            </h2>
+        </md-toolbar>
+        <div layout="column">
+            <md-input-container>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" ng-model="email" required />
+                <div ng-messages="form.email.$error">
+                    <div ng-message="required">Email requerido.</div>
+                    <div ng-message="email">Email es incorrecto.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" ng-model="password" required />
+                <div ng-messages="form.password.$error">
+                    <div ng-message="required">Contraseña requerida.</div>
+                </div>
+            </md-input-container>
+           <md-button  class="md-raised md-primary" type="submit" ng-disabled="form.$invalid || dataLoading">Login</md-button>
+            <div>
+                <div ng-show="loginFailed" >Contraseña incorrecta.</div>
+            </div>
+        </div>
+    </form>
+</div>
