@@ -17,6 +17,12 @@ angular.module('News').factory('newsService', ['coreService',
             },
             saveNew: function(aNew, onSaved)
             {
+                aNew.type = "published";
+                dataService.saveObject(aNew, onSaved);
+            },
+            saveSuggestedNew: function(aNew, onSaved)
+            {
+                aNew.type = "suggested";
                 dataService.saveObject(aNew, onSaved);
             },
             getNewForEdit: function(){

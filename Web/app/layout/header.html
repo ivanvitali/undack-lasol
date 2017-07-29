@@ -1,15 +1,14 @@
-<md-toolbar layout-padding layout="row" md-whiteframe="2" ng-cloak>
+<div id="recuadro-header">
+    <md-toolbar  ng-controller="headerCtrl" layout-padding layout="row" md-whiteframe="2" ng-cloak style="background-color: #3d418c;">
     <div class="md-toolbar-tools">
         <h2>UndackApp</h2>
     </div>
-    <md-nav-bar
+    <md-nav-bar id="recuadro-nav"
             md-selected-nav-item="currentNavItem"
             nav-bar-aria-label="navigation links">
-        <md-nav-item ui-sref="news.show" md-nav-click="goto('page1')" name="page1">
-            Inicio
-        </md-nav-item>
-        <md-nav-item ui-sref="news.index" md-nav-click="goto('page2')" name="page2">
-            Novedades
-        </md-nav-item>
+        <md-nav-item md-nav-sref="auth.login" style="background-color:#3d418c" name="auth.login">Entrar</md-nav-item>
+        <md-nav-item md-nav-sref="news.show" style="background-color:#3d418c" name="news.show">Inicio</md-nav-item>
+        <md-nav-item md-nav-sref="news.index" style="background-color:#3d418c" name="news.index">Novedades</md-nav-item>
     </md-nav-bar>
 </md-toolbar>
+</div>

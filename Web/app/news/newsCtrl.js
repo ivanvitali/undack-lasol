@@ -84,7 +84,7 @@ angular.module('News').controller('news.edit', ['$scope', '$stateParams', 'newsS
         $scope.save=function(){
             $scope.newEditing.creationDate = new Date().getTime();
             $scope.newEditing.expirationDate = new Date($scope.expirationDate).getTime();
-            newsService.saveNew($scope.newEditing, onSaved);
+            !isSuggestion() ? newsService.saveNew($scope.newEditing, onSaved) : newsService.saveSuggestedNew($scope.newEditing, onSaved) ;
         }
         var onSaved=function(newSaved){
             $scope.newSaved=true;
@@ -92,6 +92,10 @@ angular.module('News').controller('news.edit', ['$scope', '$stateParams', 'newsS
 
         var isCreating=function () {
             return $stateParams.id == undefined;
+        }
+
+        var isSuggestion = function() {
+            return $stateParams.type === 'sugeridos';
         }
         $scope.setup();
     }

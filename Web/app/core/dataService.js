@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('Core').factory('coreService', ['$firebaseObject',
   function ($firebaseObject) {
 	  var config = {
@@ -13,6 +11,9 @@ angular.module('Core').factory('coreService', ['$firebaseObject',
 	  firebase.initializeApp(config);
 
 	return {
+      login: function(email, password) {
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+      },
 	    getData: function(referenceName, onLoaded){
 			var ref = firebase.database().ref(referenceName);
 			var obj = $firebaseObject(ref);
