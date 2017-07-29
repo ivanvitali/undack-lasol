@@ -18,7 +18,7 @@ angular.module('News', ['Core']).config(function($stateProvider) {
         controller: "news.index"
     })
     .state('news.create', {
-        url: "/create",
+        url: "/{type}/create",
         templateUrl: "news/edit.html",
         controller: "news.edit"
     })
